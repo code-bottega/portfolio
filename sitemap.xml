@@ -1,0 +1,27 @@
+<!-- File che dice ai motori di ricerca quali pagine esistono nel sito.
+
+A cosa serve:
+Indicizzazione — aiuta Google a trovare e scansionare tutte le pagine del sito, anche quelle non facilmente raggiungibili dai link interni
+
+Priorità — il campo <priority> (1.0, 0.8…) suggerisce quali pagine sono più importanti
+
+Data di modifica — <lastmod> indica quando una pagina è stata aggiornata, così Google sa quando ri-scansionarla
+
+Nel tuo caso il file dichiara due URL:
+https://stivenhoxha.it/ → priorità massima (1.0)
+https://stivenhoxha.it/contact → priorità 0.8
+ -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://stivenhoxha.it/</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stivenhoxha.it/contact</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
