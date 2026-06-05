@@ -118,7 +118,7 @@
     opacity: 1;
 }
 
-.project-overlay a {
+.btn-vedi-progetto {
     color: var(--accent-cyan);
     border: 1px solid var(--accent-cyan);
     padding: 12px 25px;
@@ -126,9 +126,12 @@
     font-weight: bold;
     border-radius: 8px;
     transition: 0.3s;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
-.project-overlay a:hover {
+.btn-vedi-progetto:hover {
     background: var(--accent-cyan);
     color: #000;
 }
@@ -327,5 +330,149 @@
 
     .marquee-content {
         gap: 40px;
+    }
+}
+
+/* --- MODAL IMMAGINE RESPONSIVE --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: var(--accent-cyan);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.modal-close:hover {
+    color: var(--accent-purple);
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* TABLET: Ottimizzazione per tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .modal-overlay {
+        padding: 40px 20px;
+    }
+
+    .modal-image {
+        max-width: 85vw;
+        max-height: 80vh;
+    }
+
+    .modal-close {
+        top: -35px;
+        font-size: 1.8rem;
+    }
+}
+
+/* MOBILE: Ottimizzazione per mobile */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 20px 15px;
+    }
+
+    .modal-content {
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+
+    .modal-image {
+        max-width: 95vw;
+        max-height: 80vh;
+        border-radius: 8px;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 5px 12px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+    }
+
+    .btn-vedi-progetto {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* MOBILE PICCOLI: Schermi molto piccoli */
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal-image {
+        max-width: 100vw;
+        max-height: 75vh;
+    }
+
+    .modal-close {
+        font-size: 1.3rem;
+        padding: 4px 10px;
+    }
+
+    .btn-vedi-progetto {
+        padding: 8px 16px;
+        font-size: 0.85rem;
     }
 }

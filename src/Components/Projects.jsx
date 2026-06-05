@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import data from '../data/data.json';
 import './Projects.css';
 
 const Projects = () => {
     const { projects, skills } = data;
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const openModal = (image) => {
+        setSelectedImage(image);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        setSelectedImage(null);
+        document.body.style.overflow = 'auto';
+    };
 
     return (
         <section className="projects" id='projects'>
@@ -39,7 +50,12 @@ const Projects = () => {
                             <div className="project-image">
                                 <img src={project.image} alt={project.title} />
                                 <div className="project-overlay">
-                                    <a href={project.link} target='_blank' rel='noreferrer'>Vedi Progetto</a>
+                                    <button 
+                                        className="btn-vedi-progetto"
+                                        onClick={() => openModal(project.image)}
+                                    >
+                                        Vedi Progetto
+                                    </button>
                                 </div>
                             </div>
                             <div className="project-info">
@@ -55,6 +71,16 @@ const Projects = () => {
                     ))}
                 </div>
             </div>
+
+            {/* MODAL IMMAGINE RESPONSIVE */}
+            {selectedImage && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={closeModal}>✕</button>
+                        <img src={selectedImage} alt="Project preview" className="modal-image" />
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
