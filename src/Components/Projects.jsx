@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import data from '../data/data.json';
-import ProjectModal from './ProjectModal';
 import './Projects.css';
 
 const Projects = () => {
     const { projects, skills } = data;
-    const [selectedProject, setSelectedProject] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
-    const openModal = (project) => {
-        setSelectedProject(project);
-        setIsModalOpen(true);
+    const openModal = (image) => {
+        setSelectedImage(image);
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);
+        setSelectedImage(null);
         document.body.style.overflow = 'auto';
     };
 
@@ -54,8 +51,8 @@ const Projects = () => {
                                 <img src={project.image} alt={project.title} />
                                 <div className="project-overlay">
                                     <button 
-                                        className="project-overlay-btn"
-                                        onClick={() => openModal(project)}
+                                        className="btn-vedi-progetto"
+                                        onClick={() => openModal(project.image)}
                                     >
                                         Vedi Progetto
                                     </button>
@@ -75,12 +72,15 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* MODAL */}
-            <ProjectModal 
-                project={selectedProject} 
-                isOpen={isModalOpen} 
-                onClose={closeModal}
-            />
+            {/* MODAL IMMAGINE RESPONSIVE */}
+            {selectedImage && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={closeModal}>✕</button>
+                        <img src={selectedImage} alt="Project preview" className="modal-image" />
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
