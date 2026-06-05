@@ -4,15 +4,15 @@ import './Projects.css';
 
 const Projects = () => {
     const { projects, skills } = data;
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedProject, setSelectedProject] = useState(null);
 
-    const openModal = (image) => {
-        setSelectedImage(image);
+    const openModal = (project) => {
+        setSelectedProject(project);
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
-        setSelectedImage(null);
+        setSelectedProject(null);
         document.body.style.overflow = 'auto';
     };
 
@@ -52,7 +52,7 @@ const Projects = () => {
                                 <div className="project-overlay">
                                     <button 
                                         className="btn-vedi-progetto"
-                                        onClick={() => openModal(project.image)}
+                                        onClick={() => openModal(project)}
                                     >
                                         Vedi Progetto
                                     </button>
@@ -72,12 +72,30 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* MODAL IMMAGINE RESPONSIVE */}
-            {selectedImage && (
+            {/* MODAL DETTAGLI PROGETTO RESPONSIVE */}
+            {selectedProject && (
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="modal-close" onClick={closeModal}>✕</button>
-                        <img src={selectedImage} alt="Project preview" className="modal-image" />
+                        <div className="modal-project">
+                            <div className="modal-image-wrapper">
+                                <img src={selectedProject.image} alt={selectedProject.title} className="modal-image" />
+                            </div>
+                            <div className="modal-project-info">
+                                <h2 className="modal-title">{selectedProject.title}</h2>
+                                <p className="modal-description">{selectedProject.description}</p>
+                                <div className="modal-tech">
+                                    {selectedProject.tech.map((t, index) => (
+                                        <span key={index} className="modal-tech-badge">{t}</span>
+                                    ))}
+                                </div>
+                                {selectedProject.link && (
+                                    <a href={selectedProject.link} target='_blank' rel='noreferrer' className="modal-link-btn">
+                                        Visita il Progetto
+                                    </a>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
