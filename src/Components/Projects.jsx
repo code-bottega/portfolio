@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import data from '../data/data.json';
+import ProjectModal from './ProjectModal';
 import './Projects.css';
 
 const Projects = () => {
     const { projects, skills } = data;
+    const [selectedProject, setSelectedProject] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = (project) => {
+        setSelectedProject(project);
+        setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        document.body.style.overflow = 'auto';
+    };
 
     return (
         <section className="projects" id='projects'>
@@ -39,7 +53,12 @@ const Projects = () => {
                             <div className="project-image">
                                 <img src={project.image} alt={project.title} />
                                 <div className="project-overlay">
-                                    <a href={project.link} target='_blank' rel='noreferrer'>Vedi Progetto</a>
+                                    <button 
+                                        className="project-overlay-btn"
+                                        onClick={() => openModal(project)}
+                                    >
+                                        Vedi Progetto
+                                    </button>
                                 </div>
                             </div>
                             <div className="project-info">
@@ -55,6 +74,13 @@ const Projects = () => {
                     ))}
                 </div>
             </div>
+
+            {/* MODAL */}
+            <ProjectModal 
+                project={selectedProject} 
+                isOpen={isModalOpen} 
+                onClose={closeModal}
+            />
         </section>
     );
 }

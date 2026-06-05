@@ -118,7 +118,7 @@
     opacity: 1;
 }
 
-.project-overlay a {
+.project-overlay-btn {
     color: var(--accent-cyan);
     border: 1px solid var(--accent-cyan);
     padding: 12px 25px;
@@ -126,9 +126,12 @@
     font-weight: bold;
     border-radius: 8px;
     transition: 0.3s;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.95rem;
 }
 
-.project-overlay a:hover {
+.project-overlay-btn:hover {
     background: var(--accent-cyan);
     color: #000;
 }
