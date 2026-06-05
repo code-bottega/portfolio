@@ -49,14 +49,16 @@ const Projects = () => {
                         <div className="project-card" key={project.id}>
                             <div className="project-image">
                                 <img src={project.image} alt={project.title} />
-                                <div className="project-overlay">
-                                    <button 
-                                        className="btn-vedi-progetto"
-                                        onClick={() => openModal(project)}
-                                    >
-                                        Vedi Progetto
-                                    </button>
-                                </div>
+                                {!selectedProject && (
+                                    <div className="project-overlay">
+                                        <button
+                                            className="btn-vedi-progetto"
+                                            onClick={() => openModal(project)}
+                                        >
+                                            Vedi Progetto
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                             <div className="project-info">
                                 <h3>{project.title}</h3>
@@ -89,11 +91,6 @@ const Projects = () => {
                                         <span key={index} className="modal-tech-badge">{t}</span>
                                     ))}
                                 </div>
-                                {selectedProject.link && (
-                                    <a href={selectedProject.link} target='_blank' rel='noreferrer' className="modal-link-btn">
-                                        Visita il Progetto
-                                    </a>
-                                )}
                             </div>
                         </div>
                     </div>
