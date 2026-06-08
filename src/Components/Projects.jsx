@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import data from '../data/data.json';
 import './Projects.css';
 
@@ -8,13 +8,21 @@ const Projects = () => {
 
     const openModal = (project) => {
         setSelectedProject(project);
-        document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setSelectedProject(null);
-        document.body.style.overflow = 'auto';
     };
+
+    useEffect(() => {
+        const prev = document.body.style.overflow;
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = prev;
+        }
+        return () => { document.body.style.overflow = prev; };
+    }, [selectedProject]);
 
     return (
         <section className="projects" id='projects'>

@@ -17,11 +17,12 @@ const Contact = () => {
             form.current,
             'f3vMo7_Nj60quGQ90'
         )
-            .then((result) => {
+            .then(() => {
                 setStatus('MESSAGGIO_INVIATO');
                 form.current.reset();
                 setTimeout(() => setStatus(''), 3000);
-            }, (error) => {
+            })
+            .catch(() => {
                 setStatus('ERRORE_INVIO');
                 setTimeout(() => setStatus(''), 3000);
             });

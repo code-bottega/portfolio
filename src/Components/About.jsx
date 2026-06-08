@@ -1,5 +1,14 @@
 import React from 'react';
 import './About.css';
+// Importiamo i loghi (icone alternative presenti in react-icons/si)
+import {
+    SiLibreoffice,
+    SiShieldsdotio,
+    SiApple,
+    SiInvoiceninja,
+    SiGithub,
+    SiReact
+} from 'react-icons/si';
 
 const About = () => {
     return (
@@ -8,7 +17,7 @@ const About = () => {
 
                 <h2 className="about-title">Chi Sono</h2>
 
-                {/* Blocco 1: Introduzione (Testo a sinistra, icone animate a destra) */}
+                {/* Blocco 1: Introduzione (Testo a sinistra, stream loghi a destra) */}
                 <div className="about-row">
                     <div className="about-col text-side">
                         <h3>Chi Sono</h3>
@@ -24,37 +33,37 @@ const About = () => {
 
                     <div className="about-col focus-side">
                         <div className="focus-box-dynamic">
-                            {/* Flusso di 6 icone animate verticalmente */}
+                            {/* Flusso di 6 icone con loghi software reali iniettati via codice */}
                             <div className="tech-icon-stream">
 
                                 {/* 1. Microsoft 365 */}
-                                <div className="icon-wrapper m365" title="Microsoft 365 & Cloud">
-                                    <i className="fab fa-microsoft"></i>
+                                <div className="icon-wrapper m365" title="Office Suite">
+                                    <SiLibreoffice />
                                 </div>
 
-                                {/* 2. Microsoft Intune (Rappresentato da Windows) */}
-                                <div className="icon-wrapper intune" title="Microsoft Intune MDM">
-                                    <i className="fab fa-windows"></i>
+                                {/* 2. Microsoft Intune */}
+                                <div className="icon-wrapper intune" title="Policy & Security">
+                                    <SiShieldsdotio />
                                 </div>
 
-                                {/* 3. Jamf PRO (Rappresentato da Apple) */}
-                                <div className="icon-wrapper jamf" title="Jamf PRO Apple MDM">
-                                    <i className="fab fa-apple"></i>
+                                {/* 3. Jamf PRO */}
+                                <div className="icon-wrapper jamf" title="Jamf / Apple">
+                                    <SiApple />
                                 </div>
 
-                                {/* 4. NinjaOne RMM */}
-                                <div className="icon-wrapper ninja" title="NinjaOne RMM">
-                                    <i className="fas fa-user-ninja"></i>
+                                {/* 4. NinjaOne */}
+                                <div className="icon-wrapper ninja" title="RMM / Automation">
+                                    <SiInvoiceninja />
                                 </div>
 
-                                {/* 5. Git / GitHub */}
+                                {/* 5. Git & GitHub */}
                                 <div className="icon-wrapper github-icon" title="Git & GitHub">
-                                    <i className="fab fa-github"></i>
+                                    <SiGithub />
                                 </div>
 
                                 {/* 6. React Frontend */}
                                 <div className="icon-wrapper react-icon" title="React.js Sviluppo Web">
-                                    <i className="fab fa-react"></i>
+                                    <SiReact />
                                 </div>
 
                             </div>
@@ -77,6 +86,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="about-col icon-side">
+                        {/* Se usi FontAwesome classico via CDN, questo va bene, altrimenti puoi convertire anche questo in react-icons */}
                         <i className="fas fa-code main-icon"></i>
                     </div>
                 </div>
