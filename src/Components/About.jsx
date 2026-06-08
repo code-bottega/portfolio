@@ -1,85 +1,122 @@
 import React from 'react';
 import './About.css';
-import data from '../data/data.json';
 
 const About = () => {
-    const { profileImageAbout } = data.about;
-
     return (
-        <div className="cy-viewport">
-            {/* Elementi di sfondo per profondità visiva */}
-            <div className="cy-grid-bg"></div>
-            <div className="cy-ambient-glow"></div>
+        <section id="about" className="about-section">
+            <div className="about-container">
 
-            <main className="cy-bento-grid">
+                <h2 className="about-title">Chi Sono</h2>
 
-                {/* UNIT 01: PROFILE VISUAL */}
-                <div className="cy-item item-profile">
-                    <div className="cy-scanner"></div>
-                    <div className="img-wrapper">
-                        <img src={profileImageAbout} alt="Stiven Architecture" />
+                {/* Blocco 1: Introduzione (Testo a sinistra, icone animate a destra) */}
+                <div className="about-row">
+                    <div className="about-col text-side">
+                        <h3>Chi Sono</h3>
+                        <p>
+                            Come <strong> Application Support Technician </strong> copro l'intero spettro tra sviluppo, automazione e gestione dei sistemi aziendali.
+                        </p>
+                        <p>
+                            Analizzo i problemi dal codice fino al device dell'utente, passando per automazione e policy di sicurezza. <br />
+                            <br />
+                            Sviluppo, gestione endpoint, flussi automatizzati, device, policy di sicurezza. Nessun compartimento stagno. Una visione a 360 gradi. Un unico obiettivo: rendere invisibili i confini che rallentano il lavoro.
+                        </p>
                     </div>
-                    {/* <div className="cy-overlay-info">
-                        <div className="status-pulse"></div>
-                        <p>OPERATOR: STIVEN_01 // ACTIVE</p>
-                    </div> */}
+
+                    <div className="about-col focus-side">
+                        <div className="focus-box-dynamic">
+                            {/* Flusso di 6 icone animate verticalmente */}
+                            <div className="tech-icon-stream">
+
+                                {/* 1. Microsoft 365 */}
+                                <div className="icon-wrapper m365" title="Microsoft 365 & Cloud">
+                                    <i className="fab fa-microsoft"></i>
+                                </div>
+
+                                {/* 2. Microsoft Intune (Rappresentato da Windows) */}
+                                <div className="icon-wrapper intune" title="Microsoft Intune MDM">
+                                    <i className="fab fa-windows"></i>
+                                </div>
+
+                                {/* 3. Jamf PRO (Rappresentato da Apple) */}
+                                <div className="icon-wrapper jamf" title="Jamf PRO Apple MDM">
+                                    <i className="fab fa-apple"></i>
+                                </div>
+
+                                {/* 4. NinjaOne RMM */}
+                                <div className="icon-wrapper ninja" title="NinjaOne RMM">
+                                    <i className="fas fa-user-ninja"></i>
+                                </div>
+
+                                {/* 5. Git / GitHub */}
+                                <div className="icon-wrapper github-icon" title="Git & GitHub">
+                                    <i className="fab fa-github"></i>
+                                </div>
+
+                                {/* 6. React Frontend */}
+                                <div className="icon-wrapper react-icon" title="React.js Sviluppo Web">
+                                    <i className="fab fa-react"></i>
+                                </div>
+
+                            </div>
+                            <span className="stream-label">Sviluppo + Infrastruttura</span>
+                        </div>
+                    </div>
                 </div>
 
-                {/* UNIT 02: CORE IDENTITY */}
-                <div className="cy-item item-bio">
-                    <div className="cy-header">
-                        <span className="cy-code">FRONTEND_DEVELOPER</span>
-                        <span className="cy-tag">CREATIVE_CODER</span>
+                {/* Blocco 2: Web Development */}
+                <div className="about-row row-reverse">
+                    <div className="about-col text-side">
+                        <h3>Web Development</h3>
+                        <p>
+                            Progetto e sviluppo interfacce web moderne, reattive e ottimizzate, curando ogni dettaglio del codice e dell'esperienza utente.
+                        </p>
+                        <div className="skills-tags">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span>
+                            <span>React</span><span>Node.js</span><span>Express.js</span><span>REST API</span>
+                            <span>MySQL</span><span>WordPress (Elementor)</span>
+                        </div>
                     </div>
-                    <h1 className="cy-title">Sviluppo <span>Interfacce</span> <br /> ad Alta Tensione.</h1>
-                    <p className="cy-desc">
-                        Mi dedico alla progettazione e allo sviluppo di siti web, ponendo particolare attenzione alla fluidità dell'esperienza utente, alla velocità di caricamento e alla solidità del codice.
-                    </p>
-                </div>
-
-                {/* UNIT 03: ENGINE STACK */}
-                <div className="cy-item item-stack">
-                    <div className="cy-header">
-                        <span className="cy-code">CORE_DEVICES</span>
-                        <span className="cy-tag">V.2.0.4</span>
-                    </div>
-                    <div className="stack-grid">
-                        <div className="stack-pill">React // Engine</div>
-                        <div className="stack-pill">Next.js // Speed</div>
-                        <div className="stack-pill">Three.js // 3D</div>
-                        <div className="stack-pill">Tailwind // UI</div>
-                        <div className="stack-pill">TypeScript // Logic</div>
+                    <div className="about-col icon-side">
+                        <i className="fas fa-code main-icon"></i>
                     </div>
                 </div>
 
-                {/* UNIT 04: TELEMETRY */}
-                <div className="cy-item item-stats">
-                    <div className="stat-box">
-                        <span className="stat-val">FOCUS SULLA QUALITA'</span>
-                        <span className="stat-lab">PRIMA DI TUTTO</span>
+                {/* Blocco 3: IT & Systems */}
+                <div className="about-row">
+                    <div className="about-col text-side">
+                        <h3>IT & System Management</h3>
+                        <p>
+                            Gestisco infrastrutture IT aziendali, amministrazione di piattaforme SaaS e configurazione di sistemi MDM/RMM, garantendo la continuità operativa.
+                        </p>
+                        <div className="skills-tags it-tags">
+                            <span>Microsoft Intune</span><span>Jamf PRO</span><span>NinjaOne</span>
+                            <span>Google Workspace</span><span>Endpoint Management</span><span>Asset Management</span>
+                            <span>Troubleshooting Rete</span>
+                        </div>
                     </div>
-                    <div className="stat-box">
-                        <span className="stat-val">∞ PASSIONE PER L'INNOVAZIONE</span>
-                        <span className="stat-lab">SEMPRE AL PASSO</span>
+                    <div className="about-col icon-side">
+                        <i className="fas fa-server main-icon"></i>
                     </div>
                 </div>
 
-                {/* UNIT 05: AUXILIARY TOOLS */}
-                <div className="cy-item item-tools">
-                    <div className="cy-header">
-                        <span className="cy-code">SEMPLICITA' & EFFICIENZA</span>
-                        <span className="cy-tag">I MIEI VALORI</span>
+                {/* Blocco 4: Tool & Workflow */}
+                <div className="about-row row-reverse">
+                    <div className="about-col text-side">
+                        <h3>Tool & Workflow</h3>
+                        <p>
+                            Utilizzo i principali strumenti di sviluppo e versioning per garantire un flusso di lavoro pulito, tracciabile e collaborativo.
+                        </p>
+                        <div className="skills-tags tools-tags">
+                            <span>Git</span><span>GitHub</span><span>Postman</span><span>VS Code</span>
+                        </div>
                     </div>
-                    <ul className="tool-list">
-                        <li><span>▶</span> <b>PASSIONE</b> // PROBLEM SOLVING</li>
-                        <li><span>▶</span> <b>OSSESSIONE</b> // DETTAGLI</li>
-                        <li><span>▶</span> <b>RICERCA</b> // INNOVAZIONE</li>
-                        <li><span>▶</span> <b>OBBIETTIVO</b> // IMPATTO</li>
-                    </ul>
+                    <div className="about-col icon-side">
+                        <i className="fas fa-tools main-icon"></i>
+                    </div>
                 </div>
 
-            </main>
-        </div>
+            </div>
+        </section>
     );
 };
 
