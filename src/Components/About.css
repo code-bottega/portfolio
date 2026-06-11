@@ -1,363 +1,932 @@
-/* ========================================================
-   STRUTTURA BASE E SEZIONI
-   ======================================================== */
-.about-section {
-    padding: 80px 20px;
-    background-color: #0f172a;
-    color: #f8fafc;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #060913;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --accent-cyan: #00f2ff;
+    --accent-blue: #3b82f6;
+    --glass: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 .about-container {
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
+    padding: 80px 24px;
 }
 
-.about-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 60px;
-}
+/* ==========================================================================
+   HERO SECTION (BLOCCO 1)
+   ========================================================================== */
 
-.about-row {
+.hero-section {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    gap: 60px;
     margin-bottom: 80px;
-    gap: 50px;
 }
 
-.about-row.row-reverse {
-    flex-direction: row-reverse;
-}
-
-.about-col {
+.hero-text {
     flex: 1;
 }
 
-.text-side h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #38bdf8;
+.section-title {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.04em;
 }
 
-.text-side p {
-    font-size: 1.1rem;
+.text-gradient {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.05rem;
     line-height: 1.7;
-    color: #cbd5e1;
+    color: var(--text-muted);
     margin-bottom: 20px;
 }
 
-.text-side strong {
-    color: #04ff88;
+.highlight-text {
+    color: #10b981;
+    font-weight: 600;
 }
 
-/* ========================================================
-   BADGES COMPETENZE (SKILLS TAGS)
-   ======================================================== */
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skills-tags span {
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #38bdf8;
+.vision-360-container {
+    position: relative;
+    display: inline-flex;
+    margin-top: 1.5rem;
+    padding: 10px 18px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    animation: floating 5s ease-in-out infinite;
     transition: all 0.3s ease;
 }
 
-.skills-tags span:hover {
-    background: #38bdf8;
-    color: #0f172a;
+.vision-360-container:hover {
+    border-color: rgba(0, 242, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
 }
 
-.it-tags span {
-    background: rgba(4, 255, 136, 0.1);
-    border: 1px solid rgba(4, 255, 136, 0.3);
-    color: #04ff88;
-}
-
-.it-tags span:hover {
-    background: #04ff88;
-    color: #0f172a;
-}
-
-/* ========================================================
-   CONTAINER DINAMICO STREAM ICONE (FLUSSO INFRASTRUTTURA)
-   ======================================================== */
-.focus-box-dynamic {
-    border: 2px dashed rgba(56, 189, 248, 0.3);
-    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.8) 0%, #0b0f19 100%);
-    height: 520px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
-}
-
-/* Linea di connessione verticale luminosa di background */
-.focus-box-dynamic::before {
-    content: '';
+.vision-pulse {
     position: absolute;
-    width: 6px;
-    height: 80%;
-    background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.4), rgba(4, 255, 136, 0.4), transparent);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.12) 0%, transparent 70%);
+    animation: pulse 4s infinite ease-in-out;
+}
+
+.vision-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     z-index: 1;
 }
 
-.tech-icon-stream {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    align-items: center;
-    z-index: 2;
+.vision-number {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
 }
 
-/* Elemento Capsula Singolo Bottone */
-.icon-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 250px;
-    padding: 6px 12px;
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 30px 12px 12px 30px;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
+.vision-line {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Quadratino Grigio Interno per l'icona */
-.brand-square {
-    width: 44px;
-    height: 44px;
-    background: #1e293b;
-    border-radius: 10px;
+.vision-label {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #a1a1aa;
+    line-height: 1;
+}
+
+.hero-animation {
+    position: relative;
+    width: 460px;
+    height: 460px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
-    transition: all 0.3s ease;
-    overflow: hidden;
 }
 
-/* Centratura perfetta degli SVG interni */
-.brand-square svg {
-    width: 70%;
-    height: 70%;
-    display: block;
+.central-hub-glow {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 75%);
+    filter: blur(15px);
 }
 
-/* Gestione dei Testi via pseudo-elemento */
-.icon-wrapper::after {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #94a3b8;
-    transition: color 0.3s ease;
+.central-hub {
+    width: 96px;
+    height: 96px;
+    background: #0f172a;
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
 
-.icon-wrapper.m365::after {
-    content: 'Microsoft 365';
+.grid-logo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
 }
 
-.icon-wrapper.intune::after {
-    content: 'Microsoft Intune';
+.dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
 }
 
-.icon-wrapper.jamf::after {
-    content: 'Jamf PRO';
+.dot.red {
+    background-color: #f25022;
 }
 
-.icon-wrapper.ninja::after {
-    content: 'NinjaOne RMM';
+.dot.green {
+    background-color: #7fba00;
 }
 
-.icon-wrapper.git-icon::after {
-    content: 'Git';
+.dot.blue {
+    background-color: #00a4ef;
 }
 
-.icon-wrapper.react-icon::after {
-    content: 'React Frontend';
+.dot.yellow {
+    background-color: #ffb900;
 }
 
-/* ========================================================
-   EFFETTI GLOW E COLORI IN HOVER PER I BRAND
-   ======================================================== */
-
-/* Microsoft 365 */
-.icon-wrapper.m365 .brand-square {
-    border: 1px solid rgba(242, 80, 34, 0.3);
+.orbit {
+    position: absolute;
+    border: 1px dashed rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
 }
 
-.icon-wrapper.m365 {
-    box-shadow: 0 0 15px rgba(242, 80, 34, 0.15);
+.orbit-inner {
+    width: 240px;
+    height: 240px;
+    animation: spin 25s linear infinite;
 }
 
-.icon-wrapper.m365:hover::after {
-    color: #f25022;
+.orbit-outer {
+    width: 390px;
+    height: 390px;
+    animation: spin 40s linear infinite reverse;
 }
 
-/* Microsoft Intune */
-.icon-wrapper.intune .brand-square {
-    border: 1px solid rgba(48, 205, 255, 0.3);
+.icon-wrapper {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
 }
 
-.icon-wrapper.intune {
-    box-shadow: 0 0 15px rgba(0, 120, 212, 0.2);
+.orbit-inner .icon-wrapper {
+    animation: counter-spin 25s linear infinite;
 }
 
-.icon-wrapper.intune:hover::after {
-    color: #30cdff;
+.orbit-outer .icon-wrapper {
+    animation: counter-spin 40s linear infinite reverse;
 }
 
-/* Jamf PRO */
-.icon-wrapper.jamf .brand-square {
-    border: 1px solid rgba(113, 128, 150, 0.3);
+.orbit-inner .icon-wrapper:nth-child(1) {
+    top: -24px;
+    left: 50%;
+    margin-left: -24px;
 }
 
-.icon-wrapper.jamf {
-    box-shadow: 0 0 15px rgba(76, 91, 112, 0.2);
+.orbit-inner .icon-wrapper:nth-child(2) {
+    bottom: -24px;
+    left: 50%;
+    margin-left: -24px;
 }
 
-.icon-wrapper.jamf:hover::after {
-    color: #cbd5e1;
+.orbit-outer .icon-wrapper:nth-child(1) {
+    top: 50%;
+    left: -24px;
+    margin-top: -24px;
 }
 
-/* NinjaOne RMM */
-.icon-wrapper.ninja .brand-square {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.orbit-outer .icon-wrapper:nth-child(2) {
+    top: 50%;
+    right: -24px;
+    margin-top: -24px;
 }
 
-.icon-wrapper.ninja {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+.orbit-outer .icon-wrapper:nth-child(3) {
+    top: 12%;
+    right: 16%;
 }
 
-.icon-wrapper.ninja:hover::after {
-    color: #ffffff;
+.icon-claude {
+    color: #cc7b19;
 }
 
-/* Git (Bagliore Arancione Esatto) */
-.icon-wrapper.git-icon .brand-square {
-    border: 1px solid rgba(240, 80, 50, 0.3);
-}
-
-.icon-wrapper.git-icon {
-    box-shadow: 0 0 15px rgba(240, 80, 50, 0.15);
-}
-
-.icon-wrapper.git-icon:hover::after {
+.icon-git {
     color: #f05032;
 }
 
-/* React.js */
-.icon-wrapper.react-icon .brand-square {
-    border: 1px solid rgba(97, 218, 244, 0.3);
-}
-
-.icon-wrapper.react-icon svg {
-    color: #61daf4;
-}
-
-.icon-wrapper.react-icon {
-    box-shadow: 0 0 15px rgba(97, 218, 244, 0.2);
-}
-
-.icon-wrapper.react-icon:hover::after {
+.icon-react {
     color: #61dafb;
 }
 
-/* ========================================================
-   ANIMAZIONI E MEDIA QUERIES
-   ======================================================== */
-.icon-wrapper:nth-child(odd) {
-    animation: moveUpDownY 4s ease-in-out infinite alternate;
+.icon-elementor {
+    color: #92003b;
 }
 
-.icon-wrapper:nth-child(even) {
-    animation: moveUpDownY 4.5s ease-in-out infinite alternate;
-    animation-delay: 0.6s;
+/* ==========================================================================
+   STRUTTURA CONTENITORI AD IMPATTO (WEBDEV, SYSMAN, TOOLS)
+   ========================================================================== */
+
+.webdev-section,
+.sysman-section,
+.tools-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.3) 0%, rgba(6, 9, 19, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 24px;
+    padding: 50px;
+    margin-bottom: 32px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
-@keyframes moveUpDownY {
-    0% {
-        transform: translateY(6px);
-    }
-
-    100% {
-        transform: translateY(-12px);
-    }
-}
-
-.stream-label {
-    position: absolute;
-    bottom: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgba(56, 189, 248, 0.9);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: #0f172a;
-    padding: 3px 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+.webdev-content,
+.sysman-content,
+.tools-content {
+    position: relative;
     z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
 }
 
-.icon-side {
+.webdev-text-side,
+.sysman-text-side,
+.tools-text-side {
+    flex: 1.1;
+}
+
+.webdev-tags-side,
+.sysman-tags-side,
+.tools-tags-side {
+    flex: 0.9;
     display: flex;
     justify-content: center;
+}
+
+.webdev-title,
+.sysman-title,
+.tools-title {
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+}
+
+.text-gradient-purple {
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+    background: linear-gradient(90deg, #ff6c37, #ffb900);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.webdev-subtitle,
+.sysman-subtitle,
+.tools-subtitle {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.tags-grid-custom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+    max-width: 460px;
+}
+
+.skill-tag-custom {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 9px 18px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: default;
+}
+
+/* ==========================================================================
+   MAPPATURA STATICA DEI COLORI TAGS
+   ========================================================================== */
+
+.tag-html5 {
+    color: #E34F26;
+    background: rgba(227, 79, 38, 0.06);
+}
+
+.tag-html5:hover {
+    background: #E34F26;
+    border-color: #E34F26;
+    color: #fff;
+    box-shadow: 0 0 20px #E34F26;
+    transform: translateY(-4px);
+}
+
+.tag-css3 {
+    color: #1572B6;
+    background: rgba(21, 114, 182, 0.06);
+}
+
+.tag-css3:hover {
+    background: #1572B6;
+    border-color: #1572B6;
+    color: #fff;
+    box-shadow: 0 0 20px #1572B6;
+    transform: translateY(-4px);
+}
+
+.tag-js {
+    color: #F7DF1E;
+    background: rgba(247, 223, 30, 0.04);
+}
+
+.tag-js:hover {
+    background: #F7DF1E;
+    border-color: #F7DF1E;
+    color: #000;
+    box-shadow: 0 0 20px #F7DF1E;
+    transform: translateY(-4px);
+}
+
+.tag-ts {
+    color: #3178C6;
+    background: rgba(49, 120, 198, 0.06);
+}
+
+.tag-ts:hover {
+    background: #3178C6;
+    border-color: #3178C6;
+    color: #fff;
+    box-shadow: 0 0 20px #3178C6;
+    transform: translateY(-4px);
+}
+
+.tag-react {
+    color: #61DAFB;
+    background: rgba(97, 218, 251, 0.06);
+}
+
+.tag-react:hover {
+    background: #61DAFB;
+    border-color: #61DAFB;
+    color: #000;
+    box-shadow: 0 0 20px #61DAFB;
+    transform: translateY(-4px);
+}
+
+.tag-node {
+    color: #339933;
+    background: rgba(51, 153, 51, 0.06);
+}
+
+.tag-node:hover {
+    background: #339933;
+    border-color: #339933;
+    color: #fff;
+    box-shadow: 0 0 20px #339933;
+    transform: translateY(-4px);
+}
+
+.tag-express {
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.tag-express:hover {
+    background: #e2e8f0;
+    border-color: #e2e8f0;
+    color: #000;
+    box-shadow: 0 0 20px #e2e8f0;
+    transform: translateY(-4px);
+}
+
+.tag-rest {
+    color: #00f2ff;
+    background: rgba(0, 242, 255, 0.05);
+}
+
+.tag-rest:hover {
+    background: #00f2ff;
+    border-color: #00f2ff;
+    color: #000;
+    box-shadow: 0 0 20px #00f2ff;
+    transform: translateY(-4px);
+}
+
+.tag-mysql {
+    color: #4479A1;
+    background: rgba(68, 121, 161, 0.06);
+}
+
+.tag-mysql:hover {
+    background: #4479A1;
+    border-color: #4479A1;
+    color: #fff;
+    box-shadow: 0 0 20px #4479A1;
+    transform: translateY(-4px);
+}
+
+.tag-wp {
+    color: #21759B;
+    background: rgba(33, 117, 155, 0.06);
+}
+
+.tag-wp:hover {
+    background: #21759B;
+    border-color: #21759B;
+    color: #fff;
+    box-shadow: 0 0 20px #21759B;
+    transform: translateY(-4px);
+}
+
+.tag-intune {
+    color: #0078d4;
+    background: rgba(0, 120, 212, 0.06);
+}
+
+.tag-intune:hover {
+    background: #0078d4;
+    border-color: #0078d4;
+    color: #fff;
+    box-shadow: 0 0 20px #0078d4;
+    transform: translateY(-4px);
+}
+
+.tag-jamf {
+    color: #e31b23;
+    background: rgba(227, 27, 35, 0.05);
+}
+
+.tag-jamf:hover {
+    background: #e31b23;
+    border-color: #e31b23;
+    color: #fff;
+    box-shadow: 0 0 20px #e31b23;
+    transform: translateY(-4px);
+}
+
+.tag-ninja {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.06);
+}
+
+.tag-ninja:hover {
+    background: #4ade80;
+    border-color: #4ade80;
+    color: #000;
+    box-shadow: 0 0 20px #4ade80;
+    transform: translateY(-4px);
+}
+
+.tag-google {
+    color: #ea4335;
+    background: rgba(234, 67, 53, 0.05);
+}
+
+.tag-google:hover {
+    background: #ea4335;
+    border-color: #ea4335;
+    color: #fff;
+    box-shadow: 0 0 20px #ea4335;
+    transform: translateY(-4px);
+}
+
+.tag-endpoint {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.06);
+}
+
+.tag-endpoint:hover {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #000;
+    box-shadow: 0 0 20px #38bdf8;
+    transform: translateY(-4px);
+}
+
+.tag-asset {
+    color: #fb7185;
+    background: rgba(251, 113, 133, 0.06);
+}
+
+.tag-asset:hover {
+    background: #fb7185;
+    border-color: #fb7185;
+    color: #fff;
+    box-shadow: 0 0 20px #fb7185;
+    transform: translateY(-4px);
+}
+
+.tag-rete {
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.06);
+}
+
+.tag-rete:hover {
+    background: #a78bfa;
+    border-color: #a78bfa;
+    color: #fff;
+    box-shadow: 0 0 20px #a78bfa;
+    transform: translateY(-4px);
+}
+
+.tag-git {
+    color: #f05032;
+    background: rgba(240, 80, 50, 0.06);
+}
+
+.tag-git:hover {
+    background: #f05032;
+    border-color: #f05032;
+    color: #fff;
+    box-shadow: 0 0 20px #f05032;
+    transform: translateY(-4px);
+}
+
+.tag-github {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tag-github:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000;
+    box-shadow: 0 0 20px #ffffff;
+    transform: translateY(-4px);
+}
+
+.tag-postman {
+    color: #ff6c37;
+    background: rgba(255, 108, 55, 0.06);
+}
+
+.tag-postman:hover {
+    background: #ff6c37;
+    border-color: #ff6c37;
+    color: #fff;
+    box-shadow: 0 0 20px #ff6c37;
+    transform: translateY(-4px);
+}
+
+.tag-vscode {
+    color: #007acc;
+    background: rgba(0, 122, 204, 0.06);
+}
+
+.tag-vscode:hover {
+    background: #007acc;
+    border-color: #007acc;
+    color: #fff;
+    box-shadow: 0 0 20px #007acc;
+    transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   SFONDI ORBITALI (WEBDEV, SYSMAN, TOOLS)
+   ========================================================================== */
+
+.webdev-bg-orbital,
+.sysman-bg-orbital,
+.tools-bg-orbital {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.14;
+    display: flex;
     align-items: center;
+    justify-content: flex-end;
+    padding-right: 5%;
 }
 
-.main-icon {
-    font-size: 5rem;
-    color: rgba(255, 255, 255, 0.07);
-    animation: float 4s ease-in-out infinite;
+.wd-orbit,
+.sm-orbit,
+.tl-orbit {
+    position: absolute;
+    border: 1px dashed rgba(255, 255, 255, 0.025);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes float {
+.wd-icon,
+.sm-icon,
+.tl-icon {
+    position: absolute;
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Configurazioni Giri Webdev */
+.wd-orbit-1 {
+    width: 290px;
+    height: 290px;
+    animation: spin 45s linear infinite;
+}
+
+.wd-orbit-2 {
+    width: 460px;
+    height: 460px;
+    animation: spin 65s linear infinite reverse;
+}
+
+.wd-orbit-3 {
+    width: 630px;
+    height: 630px;
+    animation: spin 85s linear infinite;
+}
+
+.wd-orbit-1 .wd-icon {
+    animation: counter-spin 45s linear infinite;
+}
+
+.wd-orbit-2 .wd-icon {
+    animation: counter-spin 65s linear infinite reverse;
+}
+
+.wd-orbit-3 .wd-icon {
+    animation: counter-spin 85s linear infinite;
+}
+
+.wd-orbit-1 .wd-icon:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wd-orbit-1 .wd-icon:nth-child(2) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wd-orbit-1 .wd-icon:nth-child(3) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.wd-orbit-2 .wd-icon:nth-child(1) {
+    top: 14%;
+    left: 14%;
+}
+
+.wd-orbit-2 .wd-icon:nth-child(2) {
+    bottom: 14%;
+    right: 14%;
+}
+
+/* Configurazioni Giri Sysman */
+.sm-orbit-1 {
+    width: 340px;
+    height: 340px;
+    animation: spin 50s linear infinite;
+}
+
+.sm-orbit-2 {
+    width: 540px;
+    height: 540px;
+    animation: spin 75s linear infinite reverse;
+}
+
+.sm-orbit-1 .sm-icon {
+    animation: counter-spin 50s linear infinite;
+}
+
+.sm-orbit-2 .sm-icon {
+    animation: counter-spin 75s linear infinite reverse;
+}
+
+.sm-orbit-1 .sm-icon:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sm-orbit-1 .sm-icon:nth-child(2) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sm-orbit-2 .sm-icon:nth-child(1) {
+    top: 15%;
+    left: 15%;
+}
+
+.sm-orbit-2 .sm-icon:nth-child(2) {
+    bottom: 15%;
+    right: 15%;
+}
+
+.sm-orbit-2 .sm-icon:nth-child(3) {
+    top: 50%;
+    left: -15px;
+}
+
+.sm-orbit-2 .sm-icon:nth-child(4) {
+    top: 50%;
+    right: -15px;
+}
+
+/* Configurazioni Giri Tools */
+.tl-orbit-1 {
+    width: 300px;
+    height: 300px;
+    animation: spin 40s linear infinite;
+}
+
+.tl-orbit-2 {
+    width: 480px;
+    height: 480px;
+    animation: spin 60s linear infinite reverse;
+}
+
+.tl-orbit-1 .tl-icon {
+    animation: counter-spin 40s linear infinite;
+}
+
+.tl-orbit-2 .tl-icon {
+    animation: counter-spin 60s linear infinite reverse;
+}
+
+.tl-orbit-1 .tl-icon:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tl-orbit-1 .tl-icon:nth-child(2) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tl-orbit-2 .tl-icon:nth-child(1) {
+    top: 15%;
+    left: 15%;
+}
+
+.tl-orbit-2 .tl-icon:nth-child(2) {
+    bottom: 15%;
+    right: 15%;
+}
+
+/* ==========================================================================
+   ANIMAZIONI BASE E MEDIA QUERIES
+   ========================================================================== */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counter-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes floating {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0px);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 }
 
-@media (max-width: 768px) {
+@keyframes pulse {
 
-    .about-row,
-    .about-row.row-reverse {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
         flex-direction: column;
-        gap: 30px;
-        margin-bottom: 50px;
         text-align: center;
+        gap: 50px;
     }
 
-    .focus-box-dynamic {
-        width: 100%;
-        height: 480px;
+    .hero-animation {
+        width: 360px;
+        height: 360px;
     }
 
-    .skills-tags {
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .webdev-content,
+    .sysman-content,
+    .tools-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .tags-grid-custom {
         justify-content: center;
     }
 
-    .main-icon {
-        font-size: 3.5rem;
-        margin-top: 10px;
+    .webdev-bg-orbital,
+    .sysman-bg-orbital,
+    .tools-bg-orbital {
+        justify-content: center;
+        padding-right: 0;
     }
 }
