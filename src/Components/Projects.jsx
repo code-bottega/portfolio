@@ -56,7 +56,18 @@ const Projects = () => {
                     {projects.map((project) => (
                         <div className="project-card" key={project.id}>
                             <div className="project-image">
-                                <img src={project.image} alt={project.title} />
+                                {project.image.endsWith('.mp4') ? (
+                                    <video
+                                        src={project.image}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="project-media"
+                                    />
+                                ) : (
+                                    <img src={project.image} alt={project.title} />
+                                )}
                                 {!selectedProject && (
                                     <div className="project-overlay">
                                         <button
