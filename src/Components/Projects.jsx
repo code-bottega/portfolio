@@ -100,7 +100,22 @@ const Projects = () => {
                         <button className="modal-close" onClick={closeModal}>✕</button>
                         <div className="modal-project">
                             <div className="modal-image-wrapper">
-                                <img src={selectedProject.image} alt={selectedProject.title} className="modal-image" />
+                                {selectedProject.image.endsWith('.mp4') ? (
+                                    <video
+                                        src={selectedProject.image}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="modal-image" /* Manteniamo la stessa classe per lo stile */
+                                    />
+                                ) : (
+                                    <img
+                                        src={selectedProject.image}
+                                        alt={selectedProject.title}
+                                        className="modal-image"
+                                    />
+                                )}
                             </div>
                             <div className="modal-project-info">
                                 <h2 className="modal-title">{selectedProject.title}</h2>
