@@ -108,6 +108,14 @@
       "tech": ["HTML, CSS, JS, React, Python, Flask, FFmpeg, Docker, Docker compose, Nginx, Ngrok"],
       "image": "/images/video_auralis.mp4",
       "link": "#"
+    },
+    {
+      "id": 8,
+      "title": "Sistema di Monitoraggio & Reporting Uptime per un Sito Web",
+      "description": "Automazione creata con Make che esegue controlli periodici sulla salute e i tempi di risposta di un sito web. Registra automaticamente lo storico delle prestazioni su Google Sheets e invia notifiche istantanee via Slack in caso di anomalie o downtime, garantendo un intervento tempestivo e un tracciamento costante dell'uptime.",
+      "tech": ["Make"],
+      "image": "/images/monitoraggio_report_sito_make.jpg",
+      "link": "#"
     }
   ]
 }
