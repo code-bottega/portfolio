@@ -91,7 +91,7 @@
       "description": "Ricreazione della homepage di Spotify webapp usando HTML e CSS. Include sidebar navigabile, playlist consigliabile, pannello personalizzato e player con controlli completi.",
       "tech": ["HTML, CSS"],
       "image": "/images/spotify.png",
-      "link": "#"
+      "link": "https://projects-boolean.github.io/html-css-spotifyweb/"
     },
     {
       "id": 6,

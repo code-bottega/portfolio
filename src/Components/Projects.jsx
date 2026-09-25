@@ -38,11 +38,9 @@ const Projects = () => {
                     <div className="skills-marquee">
                         <div className="marquee-content">
                             {skills.map((skill, index) => (
-                                /* Aggiungiamo 'colored' alla lista delle classi */
                                 <i key={`f1-${index}`} className={`${skill} colored skill-icon`}></i>
                             ))}
                             {skills.map((skill, index) => (
-                                /* Ripetiamo anche qui per il secondo giro */
                                 <i key={`f2-${index}`} className={`${skill} colored skill-icon`}></i>
                             ))}
                         </div>
@@ -51,7 +49,7 @@ const Projects = () => {
                     <div className="header-decoration"></div>
                 </div>
 
-                {/* GRIGLIA PROGETTI (Inserita nel container per allineamento) */}
+                {/* GRIGLIA PROGETTI */}
                 <div className="projects-grid">
                     {projects.map((project) => (
                         <div className="project-card" key={project.id}>
@@ -107,7 +105,7 @@ const Projects = () => {
                                         loop
                                         muted
                                         playsInline
-                                        className="modal-image" /* Manteniamo la stessa classe per lo stile */
+                                        className="modal-image"
                                     />
                                 ) : (
                                     <img
@@ -125,6 +123,20 @@ const Projects = () => {
                                         <span key={index} className="modal-tech-badge">{t}</span>
                                     ))}
                                 </div>
+
+                                {/* BOTTONE POSIZIONATO SOTTO LO STACK */}
+                                {selectedProject.link && selectedProject.link !== "#" && (
+                                    <div className="modal-actions">
+                                        <a
+                                            href={selectedProject.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-visualizza-live"
+                                        >
+                                            Visualizza Progetto Live
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
